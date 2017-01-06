@@ -21,23 +21,23 @@ mapType
 }
 \examples{
 if(require(leaflet)){
-  dat = data.frame(regionNames("city"),
-                                runif(384))
-  map = leafletGeo("city", dat)
+  dat = data.frame(regionNames("china"),
+                                runif(34))
+  map = leafletGeo("china", dat)
 
    pal <- colorNumeric(
      palette = "Blues",
      domain = map$value)
 
   leaflet(map) \%>\% addTiles() \%>\%
-     leaflet::addPolygons(stroke = TRUE,
+     addPolygons(stroke = TRUE,
      smoothFactor = 1,
      fillOpacity = 0.7,
      weight = 1,
      color = ~pal(value),
      popup = ~htmltools::htmlEscape(popup)
      ) \%>\%
-   leaflet::addLegend("bottomright", pal = pal, values = ~value,
+   addLegend("bottomright", pal = pal, values = ~value,
                         title = "legendTitle",
                  labFormat = leaflet::labelFormat(prefix = ""),
                  opacity = 1)

@@ -2,7 +2,7 @@ Package: leafletCN
 Type: Package
 Title: An R Gallery for China and Other Geojson Choropleth Map in
         Leaflet
-Version: 0.1
+Version: 0.2
 Date: 2016-12-24
 Author: Dawei Lang
 Maintainer: Dawei Lang <chiffonlang@icloud.com>
@@ -12,6 +12,6 @@ LazyData: TRUE
 Imports: htmltools, magrittr, sp, jsonlite, leaflet
 RoxygenNote: 5.0.1
 NeedsCompilation: no
-Packaged: 2016-12-30 01:36:03 UTC; chiffon
+Packaged: 2017-01-01 14:10:21 UTC; chiffon
 Repository: CRAN
-Date/Publication: 2016-12-30 10:12:27
+Date/Publication: 2017-01-06 16:53:42

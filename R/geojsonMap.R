@@ -6,7 +6,7 @@
 ##' geojsonMap(dat, mapName, namevar=NULL, valuevar=NULL,
 ##'   palette = "Blues", colorMethod = "numeric",
 ##'   na.color = "#808080", popup = NULL, stroke = T, smoothFactor = 1,
-##'    weight = 1, fillOpacity = 0.7, legendTitle = "Legend", ...)
+##'    weight = 1, fillOpacity = 0.7, legendTitle = "Legend", tileType, ...)
 ##'
 ##' @param dat a data.frame contain regions and values
 ##' @param mapName mapName for loading, eg. 'china', 'city', ...
@@ -21,21 +21,22 @@
 ##' @param weight stroke width in pixels
 ##' @param fillOpacity fill opacity
 ##' @param legendTitle legend title
+##' @param tileType function to define tile like amap or leaflet::addTiles
 ##' @param ... other paramter pass to the color mapping function
 ##'
 ##' @examples
-##' dat = data.frame(name = regionNames("city"),
-##'                  value = runif(384))
-##' geojsonMap(dat,"city")
+##' dat = data.frame(name = regionNames("china"),
+##'                  value = runif(34))
+##' geojsonMap(dat,"china")
 ##'
 ##' dat$value2 = cut(dat$value, c(0, 0.25, 0.5, 1))
-##' geojsonMap(dat,"city",
+##' geojsonMap(dat,"china",
 ##'   namevar = ~name,
 ##'   valuevar = ~value2,
 ##'   palette="Reds",
 ##'   colorMethod="factor")
 ##'
-##' geojsonMap(dat,"city",
+##' geojsonMap(dat,"china",
 ##'   namevar = ~name,
 ##'   valuevar = ~value2,
 ##'   palette = topo.colors(3),
@@ -54,14 +55,15 @@ geojsonMap= function(dat,
                      weight = 1,
                      fillOpacity = 0.7,
                      legendTitle = "Legend",
+                     tileType = amap,
                      ...){
   if(class(dat) != 'data.frame'){
     stop("dat should be a data.frame")
   }
   if(is.null(namevar)){
-    name = dat[, 1]
+    name = dat[, 1] %>% toLabel()
   }else{
-    name = evalFormula(namevar,dat)
+    name = evalFormula(namevar,dat) %>% toLabel()
   }
   name = as.character(name)
 
@@ -73,7 +75,8 @@ geojsonMap= function(dat,
 
 
   countries <- readGeoLocal(mapName)
-  index = sapply(name,function(x) which(x==countries$name)[1])
+  countries$label = toLabel(countries$name)
+  index = sapply(countries$label,function(x) which(name==x)[1])
 
   if(is.null(popup)){
     countries$popup = countries$name
@@ -126,7 +129,7 @@ geojsonMap= function(dat,
 
 
   map <- leaflet::leaflet(countries)
-  map %>% leaflet::addTiles() %>%
+  map %>% tileType %>%
     leaflet::addPolygons(stroke = stroke,
                 smoothFactor = smoothFactor,
                 fillOpacity = fillOpacity,
