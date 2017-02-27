@@ -1,4 +1,4 @@
-16cabd743e081b0227a3283ad588cf04 *DESCRIPTION
+db5ce8f149afb8783a6445adbe4c23c6 *DESCRIPTION
 0f7a0b55e0df5f0b06e325d6df766ba2 *NAMESPACE
 02ceaf5c80f6aa987438a50fee35a5c4 *R/Amap.R
 4c7b69d6a7853253c33a1f0caaf22e78 *R/data.R
@@ -392,11 +392,11 @@ cadd7f61d279e3eb8418fd57ee86b167 *inst/geojson/81.json
 f1d937e8f3d36bc97ca41a047abcac60 *inst/geojson/china.json
 4b2a73b9d54abbcc696487fc4e37ec9e *inst/geojson/city.json
 92985cb4e145f2426456f93205c9c933 *inst/geojson/countries.json
-b2d07597cfa0e4eb01e1718c2697feaf *man/amap.Rd
-434b74523a8e32edae971d9172e46535 *man/demomap.Rd
-fa3c16babf40d6b484b2e8ccc9845d84 *man/geojsonMap.Rd
+81726792d757d972c55dc58a2260a330 *man/amap.Rd
+581f54e9e08ff2606f0da2c64b9825d8 *man/demomap.Rd
+4fc5414ac3d3808cd696f6a8e6cd8620 *man/geojsonMap.Rd
 3dfccd17cab8e8b8d9b70173fda9790d *man/leafletCN-imports.Rd
-2a676605161653840cb02f85d69772bd *man/leafletGeo.Rd
-b8aeed891dd25a576c2945ff6d1e9eff *man/mapNames.Rd
-4b2b19ba4ff975d6bf06d045970b5fe0 *man/read.geoShape.Rd
-f11bb69c4120cf9f34296f86f9ac4575 *man/regionNames.Rd
+5422e5ec640102e3958e1c48cb60aa4b *man/leafletGeo.Rd
+df8f27e3777facb8e92b4f7009a377ae *man/mapNames.Rd
+826469fb358516048e60d863c3662ae3 *man/read.geoShape.Rd
+2945356bf82c1f1a41f0b3b97501e30a *man/regionNames.Rd
